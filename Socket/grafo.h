@@ -35,6 +35,7 @@ public:
     static void InsertarArista(Vertice *origen,Vertice *destino,int peso);
     void InsertaVertice(string nombre);
     string ListaAyacencia();
+    void Dijkstra(Vertice *origen,Vertice *destino);
 };
 
 

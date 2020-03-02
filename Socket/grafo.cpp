@@ -87,4 +87,5 @@ string Grafo::ListaAyacencia() {
         imprime += "\n";
 
     }
-    return imprime;}
+    cout<<imprime<<endl;
+}

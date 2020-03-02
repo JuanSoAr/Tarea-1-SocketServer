@@ -1,5 +1,6 @@
 #include "socketserver.h"
 
+#include "grafo.h"
 #include "socketserver.h"
 
 SocketServer::SocketServer()
@@ -59,7 +60,6 @@ void * SocketServer::controladorCliente(void *obj)
 {
     dataSocket *data = (dataSocket*)obj;
     while (true) {
-
         string mensaje;
         while (1) {
             char buffer[10] = {0};
@@ -68,7 +68,23 @@ void * SocketServer::controladorCliente(void *obj)
             if(bytes < 10)
                 break;
         }
-        cout << mensaje << endl;
+        if(mensaje == "Crear grafo"){
+            cout<<"Grafo creado :"<<endl;
+            Grafo *g = new Grafo();
+            g->Inicializa();
+            g->InsertaVertice("Madrid");
+            g->InsertaVertice("Barcelona");
+            g->InsertaVertice("Sevilla");
+            g->InsertaVertice("Bilbao");
+            g->InsertaVertice("Pamplona");
+            g->InsertarArista(g->GetVertice("Madrid"),g->GetVertice("Barcelona"),100);
+            g->InsertarArista(g->GetVertice("Sevilla"),g->GetVertice("Barcelona"),250);
+            g->InsertarArista(g->GetVertice("Madrid"),g->GetVertice("Sevilla"),15);
+            g->InsertarArista(g->GetVertice("Madrid"),g->GetVertice("Bilbao"),250);
+            g->InsertarArista(g->GetVertice("Bilbao"),g->GetVertice("Barcelona"),100);
+            g->InsertarArista(g->GetVertice("Sevilla"),g->GetVertice("Madrid"),150);
+            g->ListaAyacencia();
+        }
     }
 
     close(data->descriptor);
