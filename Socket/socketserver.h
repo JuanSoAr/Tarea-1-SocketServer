@@ -14,12 +14,17 @@
 
 
 using namespace std;
-
+/**
+ * @brief The dataSocket struct
+ */
 struct dataSocket{
     int descriptor;
     sockaddr_in info;
 };
-
+/**
+ * @brief The SocketServer class
+ * Manejo de los sockets
+ */
 class SocketServer
 {
 public:

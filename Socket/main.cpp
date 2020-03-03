@@ -3,7 +3,11 @@
 
 
 SocketServer *server;
-
+/**
+ * @brief serverRun
+ * @return
+ * ESte es un hilo el cual me permite corre mi servidor y sus funciones
+ */
 void * serverRun(void *)
 {
     try{
@@ -15,7 +19,12 @@ void * serverRun(void *)
 
    pthread_exit(NULL);
 }
-
+/**
+ * @brief main
+ * @param argc
+ * @param argv
+ * @return
+ */
 int main(int argc, char *argv[])
 {
    server = new SocketServer;
@@ -23,7 +32,7 @@ int main(int argc, char *argv[])
    pthread_create(&hiloServer,0,serverRun,NULL);
    pthread_detach(hiloServer);
 
-   while (1) {
+   while (1) {//Envia mensaje al cliente
        string mensaje;
        cin >> mensaje;
        server->setMensaje(mensaje.c_str());
