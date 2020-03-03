@@ -1,7 +1,7 @@
 #ifndef GRAFO_H
 #define GRAFO_H
 
-
+//El funcionamiento del grafo fue tomado de youtube,del autor Emanuel LG
 #include <iostream>
 
 using namespace std;
