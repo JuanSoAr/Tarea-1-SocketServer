@@ -108,6 +108,9 @@ void * SocketServer::controladorCliente(void *obj)
             g->InsertarArista(g->GetVertice("Sevilla"),g->GetVertice("Madrid"),150);
             g->ListaAyacencia();
         }
+        else{
+            cout<<mensaje<<endl;
+        }
 
     }
 
